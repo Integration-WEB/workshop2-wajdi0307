@@ -1,0 +1,45 @@
+
+.text {
+   color: red;
+   font-size: 20px;
+    }
+    .text-area{
+       
+            @extend .text;
+        
+    }
+    .h1{
+        @extend .text;
+    }
+
+    @mixin border($border) {
+        border: $border;
+    }
+    .btn{
+        @include border(3px solid yellow);
+    }
+   
+    @function background ($color){
+        @if($color == white)  {
+            @return black;
+        }@else{
+            @return white;
+        }
+    }
+    .btn-default{
+        color: background(pink);
+    }
+    $list :"HTML5"  , "CSS3" , "JAVA" , "REACT";
+    @function first($list){
+        @return nth($list , 1 );
+    }
+   first{
+        content: first($list);
+        
+    }
+    @function last ($list){
+        @return nth($list ,4 )
+    }
+last{
+    content: last($list);
+}
